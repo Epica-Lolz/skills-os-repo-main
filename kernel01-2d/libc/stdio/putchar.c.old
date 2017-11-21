@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+#if defined(__is_libk)
+#include <kernel/tty.h>
+#endif // defined
+
+//line 12 - local variable 'c' is being set to int ic, which has now been typecasted to (char) ic.
+//line 13 - taking advantage of the term_write function I wrote in the tty.c file. the old operating system did something similar to this.
+
+int putchar(int ic){//int ic is the string.
+#if defined(__is_libk)
+    char c = (char) ic;
+    term_write(&c, sizeof(c))；
+#else
+    //TO-DO: implement stdio and the write system call
+#endif // defined
+    return ic;//return string
+}
