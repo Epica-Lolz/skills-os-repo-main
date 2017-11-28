@@ -7,8 +7,8 @@ CPPFLAGS?=
 LDFLAGS?=
 LIBS?=
 
-INCK=-I/mnt/c/Users/User/Desktop/SkillsUSA_OS_Dev_Folder/kernel01-2d/kernel/include
-INCL=-I/mnt/c/Users/User/Desktop/SkillsUSA_OS_Dev_Folder/kernel01-2d/libc/include
+INCK=$(INC1)
+INCL=$(INC2)
 
 DESTDIR?=
 PREFIX?=/usr/local
@@ -16,7 +16,7 @@ EXEC_PREFIX?=$(PREFIX)
 BOOTDIR?=$(EXEC_PREFIX)/boot
 INCLUDEDIR?=$(PREFIX)/include
 
-CFLAGS:=$(CFLAGS) -ffreestanding -Wall -Wextra $(INCL) $(INCK)
+CFLAGS:=$(CFLAGS) -ffreestanding -Wall -Wextra -I$(INCL) -I$(INCK)
 CPPFLAGS:=$(CPPFLAGS) -D__is_kernel $(INCL) $(INCK)
 LDFLAGS:=$(LDFLAGS)
 LIBS:=$(LIBS) -nostdlib -lk -lgcc

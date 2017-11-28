@@ -18,13 +18,13 @@ LIBDIR?=$(EXEC_PREFIX)/lib
 CFLAGS:=$(CFLAGS) -ffreestanding -Wall -Wextra
 CPPFLAGS:=$(CPPFLAGS) -D__is_libc 
 LIBK_CFLAGS:=$(CFLAGS)
-LIBK_CPPFLAGS:=$(CPPFLAGS) -D__is_libk -I/mnt/c/Users/User/Desktop/SkillsUSA_OS_Dev_Folder/kernel01-2d/kernel/include -I/mnt/c/Users/User/Desktop/SkillsUSA_OS_Dev_Folder/kernel01-2d/libc/include
+LIBK_CPPFLAGS:=$(CPPFLAGS) -D__is_libk -I/mnt/c/Users/User/Documents/GitHub/SkillsUSA-OS-Repo/kernel01-2d/libc/include -I/mnt/c/Users/User/Documents/GitHub/SkillsUSA-OS-Repo/kernel01-2d/kernel/include
 
 ARCHDIR=arch/$(HOSTARCH)
 
 include $(ARCHDIR)/make.config
 
-INC=$(-I/mnt/c/Users/User/Desktop/SkillsUSA_OS_Dev_Folder/kernel01-2d/kernel/include/) $(-I/mnt/c/Users/User/Desktop/SkillsUSA_OS_Dev_Folder/kernel01-2d/libc/include)
+INC=$(-I/mnt/c/Users/User/Documents/GitHub/SkillsUSA-OS-Repo/kernel01-2d/libc/include) $(-I/mnt/c/Users/User/Documents/GitHub/SkillsUSA-OS-Repo/kernel01-2d/kernel/include)
 
 INC_PARAMS=$(foreach d, $(INC), -I$d)
 
@@ -35,6 +35,7 @@ LIBK_CPPFLAGS:=$(LIBK_CPPFLAGS) $(KERNEL_ARCH_CPPFLAGS)
 
 FREEOBJS=\
 $(ARCH_FREEOBJS) \
+stdio/getchar.o \
 stdio/printf.o \
 stdio/putchar.o \
 stdio/puts.o \
