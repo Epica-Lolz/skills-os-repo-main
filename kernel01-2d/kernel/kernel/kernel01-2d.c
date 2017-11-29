@@ -23,8 +23,8 @@ void print_scroller(){
 void kmain(void){
     term_init();//call term_init function defined in tty.c
     print_scroller();//call print_scroller
-    for(;;){
-        char ch=getchar();
-        printf("%c", ch);
-    }
+    char ch2=getchar();
+    printf("%c",ch2);
+    char meme;
+
 }
