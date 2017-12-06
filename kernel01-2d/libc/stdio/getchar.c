@@ -39,6 +39,26 @@ char getScancode() {
     } while(1);
 }
 
+char typeScancode(){
+    char in=0;
+    do{
+    if(inb(0x60!=in)){
+        in=inb(0x60);
+        if(in>0)
+            return in;
+        }
+    }while(1);
+}
+
 char getchar(void) {
     return scancode[getScancode()+1];
+}
+
+char *gets(char *str){
+    uint8_t index = 0;
+    while(index<=5){
+        str[index]=getchar();
+        ++index;
+    }
+    return *str;
 }
