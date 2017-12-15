@@ -21,10 +21,10 @@ void print_scroller(){
 }
 
 void kmain(void){
+    uint16_t index = 0;
     term_init();//call term_init function defined in tty.c
     print_scroller();//call print_scroller
     char meme[5];
-    gets(meme);
-    printf("%s",meme);
-    printf("\ndone");
+    gets(meme, 5);
+    printf("done");
 }

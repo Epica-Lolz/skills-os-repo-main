@@ -12,7 +12,7 @@ extern "C" {
 int printf(const char* __restrict, ...);
 int putchar(int);
 int puts(const char*);
-char *gets(char *str);
+char *gets(char *str, char in);
 char getchar(void);
 
 #ifdef __cplusplus
